@@ -7,16 +7,16 @@
 
 import UIKit
 class NewsCell: UITableViewCell {
-    var lastArticleItem: ArticleItem!
+    var article: ArticleItem! {
+        didSet {
+            guard let article = article else { return }
+            title.text = article.title
+            details.text = article.description
+            newsImage.setImageFromUrl(article.urlToImage)
+        }
+    }
     
     @IBOutlet weak var newsImage: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var details: UILabel!
-    
-    func setArticle(articleItem: ArticleItem) {
-        lastArticleItem = articleItem
-        articleItem.setImageFor(imageView: newsImage)
-        title.text = articleItem.title
-        details.text = articleItem.description
-    }
 }

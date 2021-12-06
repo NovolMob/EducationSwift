@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11AC5E17DD01E0E962B87DF8 /* Pods_FirstApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124EF10EB2C8D3BF155C7985 /* Pods_FirstApplication.framework */; };
+		7011758427565E4100C1D325 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7011758327565E4100C1D325 /* KeychainWrapper.swift */; };
 		701B0A10274E765B001766B8 /* ArticleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0A0F274E765B001766B8 /* ArticleResponse.swift */; };
 		701B0A13274E9DD4001766B8 /* ArticleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0A12274E9DD4001766B8 /* ArticleManager.swift */; };
 		706553AD274BB9070043F801 /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706553AC274BB9070043F801 /* NewsListViewController.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		124EF10EB2C8D3BF155C7985 /* Pods_FirstApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirstApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7011758327565E4100C1D325 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		701B0A0F274E765B001766B8 /* ArticleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleResponse.swift; sourceTree = "<group>"; };
 		701B0A12274E9DD4001766B8 /* ArticleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleManager.swift; sourceTree = "<group>"; };
 		706553AC274BB9070043F801 /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				F4EE84D92615BBA400B632D6 /* NumberUtils.swift */,
+				7011758327565E4100C1D325 /* KeychainWrapper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				F4EA84C4260C792800DDE9C2 /* CustomView.swift in Sources */,
 				706553AF274BBA3D0043F801 /* DetailsNewsViewController.swift in Sources */,
 				701B0A10274E765B001766B8 /* ArticleResponse.swift in Sources */,
+				7011758427565E4100C1D325 /* KeychainWrapper.swift in Sources */,
 				F4EE84DF2615BECA00B632D6 /* FirstNavigationController.swift in Sources */,
 				F4013D832609E766001DC4FD /* CustomControlData.swift in Sources */,
 				701B0A13274E9DD4001766B8 /* ArticleManager.swift in Sources */,

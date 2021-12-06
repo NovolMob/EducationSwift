@@ -8,14 +8,18 @@
 import UIKit
 import Kingfisher
 struct ArticleItem: Decodable {
-    let author: String
-    let title: String
-    let description: String
-    let url: String
-    let urlToImage: String
-    let publishedAt: Date
+    let author: String?
+    let title: String?
+    let description: String?
+    let url: String?
+    let urlToImage: String?
+    let publishedAt: Date?
     
-    func setImageFor(imageView: UIImageView) {
-        imageView.kf.setImage(with: URL(string: urlToImage))
+}
+
+extension UIImageView {
+    func setImageFromUrl(_ urlToImage: String?) {
+        guard let urlString = urlToImage else {return}
+        kf.setImage(with: URL(string: urlString))
     }
 }
