@@ -10,7 +10,19 @@ class KeychainWrapper {
     static let APPLICATION_TAB = "first-app"
     static let APPLICATION_NAMESPACE = "first-app"
     
-    static func setValue(_ value: Data, forKey key: String) {
+    static func setValue(forKey key: String, _ value: Data) {
+        var query: [String: Any] = createQuery(forKey: key)
+        var status: OSStatus = SecItemUpdate(query as CFDictionary, [kSecValueData as String: value] as CFDictionary)
+        if (status == errSecItemNotFound) {
+            query[kSecValueData as String] = value
+            status = SecItemAdd(query as CFDictionary, nil)
+            if (status != errSecSuccess) {
+                print("Данные не сохранены в Keychain!")
+            }
+        }
+    }
+    
+    static func addValue(forKey key: String, _ value: Data) {
         var addquery: [String: Any] = createQuery(forKey: key)
         addquery[kSecValueData as String] = value
         let status: OSStatus = SecItemAdd(addquery as CFDictionary, nil)
@@ -26,6 +38,11 @@ class KeychainWrapper {
         var item: AnyObject?
         SecItemCopyMatching(getquery as CFDictionary, &item)
         return item as? Data
+    }
+    
+    static func updateValue(forKey key: String, _ value: Data) {
+        let query: [String: Any] = createQuery(forKey: key)
+        SecItemUpdate(query as CFDictionary, [kSecValueData as String: value] as CFDictionary)
     }
     
     static func generateTag(forKey: String) -> Data {

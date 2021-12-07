@@ -17,16 +17,12 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    let LABEL_KEY = "first_tab_label"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         myTextField.delegate = self
-        textView.text = UserDefaults.standard.string(forKey: LABEL_KEY)
-        myTextField.text = UserDefaults.standard.string(forKey: LABEL_KEY)
-        
-        guard let data = KeychainWrapper.getValue(forKey: LABEL_KEY) else { return }
-        keychainLabel.text = String(data: data, encoding: .utf8)
+        textView.text = DataStorage.instance.userDefaultLabel
+        myTextField.text = DataStorage.instance.userDefaultLabel
+        keychainLabel.text = DataStorage.instance.keychainLabel
     }
     
     @IBAction func setNumber(_ sender: Any) {
@@ -34,8 +30,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         keychainLabel.text = myTextField.text
         myTextField.endEditing(true)
         
-        UserDefaults.standard.set(textView.text, forKey: LABEL_KEY)
-        KeychainWrapper.setValue(keychainLabel.text!.data(using: .utf8)!, forKey: LABEL_KEY)
+        DataStorage.instance.keychainLabel = myTextField.text
+        DataStorage.instance.userDefaultLabel = myTextField.text
     }
     
     @IBAction func actionSlider(_ sender: Any) {
