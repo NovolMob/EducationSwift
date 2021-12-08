@@ -14,6 +14,15 @@ class NewsListViewController: UIViewController {
         dataSource = ArticlesDataSource(tableView, self)
         tableView.refreshControl?.sendActions(for: .valueChanged)
         tableView.refreshControl?.beginRefreshing()
+        
+        dataSource.didSelect = {
+            [weak self] (tableView, index) in
+            guard let cell = (tableView.cellForRow(at: index) as? NewsCell) else { return }
+            guard let detailsNews =  (self?.storyboard?.instantiateViewController(withIdentifier: "DetailsNews") as? DetailsNewsViewController) else { return }
+            detailsNews.article = cell.article
+            tableView.deselectRow(at: index, animated: false)
+            self?.navigationController?.pushViewController(detailsNews, animated: true)
+        }
     }
     
 }

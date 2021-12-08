@@ -9,9 +9,4 @@ import UIKit
 
 class RootTabController: UITabBarController {
         
-    override var shouldAutorotate: Bool {
-        get {
-            return !(UIDevice.current.orientation != .portrait && tabBar.selectedItem?.tag == 1)
-        }
-    }
 }

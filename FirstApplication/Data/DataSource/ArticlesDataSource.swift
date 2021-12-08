@@ -10,7 +10,7 @@ import Alamofire
 
 class ArticlesDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     private var articles: [ArticleItem] = []
-    private static let pageSize: Int = 5
+    private let pageSize: Int = 5
     private var totalResults: Int = 0
     private var triggerOffset: CGFloat = 50.0
     private var isLoadingNews: Bool = false
@@ -18,6 +18,10 @@ class ArticlesDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
 //    private let apiKey = "075acc000a034b4baf20d6a7815d0441"
     private let apiKey = "c1ea3aa4b4904d1f9103f6f60ad5bd0d"
     
+    
+    var didSelect: (UITableView, IndexPath) -> Void = {
+        (_, _) in
+    }
     private var controller: UIViewController!
     private var tableView: UITableView!
     
@@ -67,18 +71,12 @@ class ArticlesDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
-        //guard let article = articles[indexPath.row] else { return cell }
         cell.article = articles[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = (tableView.cellForRow(at: indexPath) as? NewsCell) else { return }
-        
-        guard let detailsNews =  (controller.storyboard?.instantiateViewController(withIdentifier: "DetailsNews") as? DetailsNewsViewController) else { return }
-        detailsNews.article = cell.article
-        tableView.deselectRow(at: indexPath, animated: false)
-        controller.navigationController?.pushViewController(detailsNews, animated: true)
+        didSelect(tableView, indexPath)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -90,7 +88,7 @@ class ArticlesDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func parseAndReplaceArticles(_ page: Int, _ completionHandler: @escaping () -> Void = {}) {
-        parseAndReplaceArticles(sourceUrl: Configuration.createUrl(apiKey, ArticlesDataSource.pageSize, page), completionHandler)
+        parseAndReplaceArticles(sourceUrl: Configuration.createUrl(apiKey, pageSize, page), completionHandler)
     }
     
     func canLoadMoreNews() -> Bool {
@@ -100,7 +98,7 @@ class ArticlesDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     func loadMoreNews() {
         isLoadingNews = true
         tableView.tableFooterView?.isHidden = false
-        parseAndAddArticles((articles.count / ArticlesDataSource.pageSize) + 1) {
+        parseAndAddArticles((articles.count / pageSize) + 1) {
             [weak self] in
             self?.tableView.reloadData()
             self?.isLoadingNews = false
@@ -109,7 +107,7 @@ class ArticlesDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func parseAndAddArticles(_ page: Int, _ completionHandler: @escaping () -> Void = {}) {
-        parseAndAddArticles(sourceUrl: Configuration.createUrl(apiKey, ArticlesDataSource.pageSize, page), completionHandler)
+        parseAndAddArticles(sourceUrl: Configuration.createUrl(apiKey, pageSize, page), completionHandler)
     }
     
     func parseAndReplaceArticles(sourceUrl: String,_ completionHandler: @escaping () -> Void = {}) {

@@ -16,10 +16,3 @@ struct ArticleItem: Decodable {
     let publishedAt: Date?
     
 }
-
-extension UIImageView {
-    func setImageFromUrl(_ urlToImage: String?) {
-        guard let urlString = urlToImage else {return}
-        kf.setImage(with: URL(string: urlString))
-    }
-}

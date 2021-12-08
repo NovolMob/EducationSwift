@@ -7,7 +7,6 @@
 
 import Foundation
 class KeychainWrapper {
-    static let APPLICATION_TAB = "first-app"
     static let APPLICATION_NAMESPACE = "first-app"
     
     static func setValue(forKey key: String, _ value: Data) {

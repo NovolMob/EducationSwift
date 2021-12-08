@@ -22,7 +22,7 @@ class FifthViewController: UIViewController {
     }
     
     @IBAction func actionPop(_ sender: Any) {
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
     
