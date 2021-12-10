@@ -22,6 +22,9 @@
 		706553B4274BBB8B0043F801 /* ArticleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706553B3274BBB8B0043F801 /* ArticleItem.swift */; };
 		706553BC274BD4BB0043F801 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706553BB274BD4BB0043F801 /* NewsCell.swift */; };
 		706553C0274C0AFE0043F801 /* ViewNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 706553BF274C0AFE0043F801 /* ViewNewsCell.xib */; };
+		706BADAE2762169700FF6574 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BADAD2762169700FF6574 /* MapViewController.swift */; };
+		706BADB0276231DE00FF6574 /* MapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BADAF276231DE00FF6574 /* MapViewExtension.swift */; };
+		7082618D2763C16D00F21A0D /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7082618C2763C16D00F21A0D /* LocationCell.swift */; };
 		70B809F1275F74DD003ED710 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B809F0275F74DD003ED710 /* DataStorage.swift */; };
 		70B809F3275FA1BE003ED710 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B809F2275FA1BE003ED710 /* PhotoCollectionViewController.swift */; };
 		70B809F6275FA404003ED710 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B809F5275FA404003ED710 /* PhotoCell.swift */; };
@@ -58,6 +61,9 @@
 		706553B3274BBB8B0043F801 /* ArticleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleItem.swift; sourceTree = "<group>"; };
 		706553BB274BD4BB0043F801 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		706553BF274C0AFE0043F801 /* ViewNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewNewsCell.xib; sourceTree = "<group>"; };
+		706BADAD2762169700FF6574 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		706BADAF276231DE00FF6574 /* MapViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewExtension.swift; sourceTree = "<group>"; };
+		7082618C2763C16D00F21A0D /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		70B809F0275F74DD003ED710 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		70B809F2275FA1BE003ED710 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		70B809F5275FA404003ED710 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 			children = (
 				7049F3E32760E92200AE1B88 /* ImageViewExtention.swift */,
 				7049F3E52760F86600AE1B88 /* PHAssetExtension.swift */,
+				706BADAF276231DE00FF6574 /* MapViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -152,6 +159,7 @@
 				706553BB274BD4BB0043F801 /* NewsCell.swift */,
 				706553BF274C0AFE0043F801 /* ViewNewsCell.xib */,
 				70B809F5275FA404003ED710 /* PhotoCell.swift */,
+				7082618C2763C16D00F21A0D /* LocationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,6 +269,7 @@
 				706553AC274BB9070043F801 /* NewsListViewController.swift */,
 				706553AE274BBA3D0043F801 /* DetailsNewsViewController.swift */,
 				7049F3E72761103F00AE1B88 /* PhotoDetailsViewController.swift */,
+				706BADAD2762169700FF6574 /* MapViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -401,6 +410,7 @@
 				706553AF274BBA3D0043F801 /* DetailsNewsViewController.swift in Sources */,
 				701B0A10274E765B001766B8 /* ArticleResponse.swift in Sources */,
 				7011758427565E4100C1D325 /* KeychainWrapper.swift in Sources */,
+				706BADB0276231DE00FF6574 /* MapViewExtension.swift in Sources */,
 				F4EE84DF2615BECA00B632D6 /* FirstNavigationController.swift in Sources */,
 				7049F3E62760F86600AE1B88 /* PHAssetExtension.swift in Sources */,
 				F4013D832609E766001DC4FD /* CustomControlData.swift in Sources */,
@@ -409,12 +419,14 @@
 				701B0A13274E9DD4001766B8 /* ArticleManager.swift in Sources */,
 				F4EA84C1260C737400DDE9C2 /* CustomDataManager.swift in Sources */,
 				7049F3DE2760D17A00AE1B88 /* PhotoWrapper.swift in Sources */,
+				7082618D2763C16D00F21A0D /* LocationCell.swift in Sources */,
 				F4033A9E260E09AD005FC048 /* ThirdViewController.swift in Sources */,
 				F4EE84DA2615BBA400B632D6 /* NumberUtils.swift in Sources */,
 				706553BC274BD4BB0043F801 /* NewsCell.swift in Sources */,
 				F430F52B25FF83FC0083C261 /* AppDelegate.swift in Sources */,
 				70B809F3275FA1BE003ED710 /* PhotoCollectionViewController.swift in Sources */,
 				706553AD274BB9070043F801 /* NewsListViewController.swift in Sources */,
+				706BADAE2762169700FF6574 /* MapViewController.swift in Sources */,
 				706553B4274BBB8B0043F801 /* ArticleItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
